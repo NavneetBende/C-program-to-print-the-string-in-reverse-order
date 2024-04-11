@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+#include <string.h>
+// function declaration str_len that  
+int str_len(char *ptr) 
+{ 
+  int i = 0; 
+  while ( *(ptr + i) != '\0') 
+  i++; 
+  return i; 
+}
+void revstr(char *st) 
+{ 
+  int len, i; 
+  char *start, *end, temp; 
+  len = str_len (st); 
+  start = st; 
+  end = st; 
+
+  for (i = 0; i < len - 1; i++) 
+  end++; 
+
+  for (i = 0; i < len/2; i++) 
+  { 
+    temp = *end; 
+    *end = *start; 
+    *start = temp; 
+
+    start++; 
+    end--; 
+   } 
+ }
+
+int main() 
+{ 
+  char st[50]="priyanka"; 
+ 
+  revstr(st); 
+  printf (" The reverse string is: %s", st); 
+  return 0; 
+}
